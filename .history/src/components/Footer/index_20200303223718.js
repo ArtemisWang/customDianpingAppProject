@@ -58,7 +58,7 @@ class Footer extends Component {
         </a>
         <em className="footer__seperator">|</em>
         <br/>
-        <p className="footer__copyright">copyright ©2020 dianping.com</p>
+        <p className="footer__copyright">copyright ©2018 dianping.com</p>
       </footer>
     )
   }

@@ -6,7 +6,7 @@ const dataSource = [
   {
     pic:
       "https://p1.meituan.net/gpa/5ee6d6d00d942804557c73abff79b855116489.jpg%40100w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D20%26y%3D20",
-    title: "精选专题：2020好物盘点",
+    title: "精选专题：2017好物盘点",
     url:
       "https://h5.dianping.com/app/h5-ranklist-static/list_nearby.html?collectionId=227&source=weixinM"
   },
