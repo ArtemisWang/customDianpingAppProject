@@ -13,7 +13,6 @@ import { actions as homeActions, getLikes, getDiscounts, getPageCountOfLikes} fr
 
 class Home extends Component {
     render() { 
-        const {likes,discounts,pageCount}=this.props
         return ( 
             <div>
                 <HomeHeader/>
@@ -21,19 +20,11 @@ class Home extends Component {
                 <Category/>
                 <Headline/>
                 <Activity/>
-                <Discount data={discounts}/>
-                <LikeList data={likes} pageCount={pageCount} fetchData={this.fetchMoreLikes}/>
+                <Discount/>
+                <LikeList/>
                 <Footer/>
             </div>
          );
-    }
-
-    componentDidMount(){
-        this.props.homeActions.loadDiscounts()
-    }
-
-    fetchMoreLikes=()=>{
-        this.props.homeActions.loadLikes()
     }
 }
 

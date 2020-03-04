@@ -10,8 +10,6 @@ export const params={
   PAGE_SIZE_DISCOUNTS:3,
 }
 
-
-// actionTypes
 export const types = {
   //获取猜你喜欢请求
   FETCH_LIKES_REQUEST: "HOME/FETCH_LIKES_REQUEST", 
@@ -39,7 +37,6 @@ const initialState={
   }
 }
 
-// actionCreators+dispatch
 export const actions = {
   // 加载猜你喜欢action
   loadLikes: () => {
@@ -51,12 +48,8 @@ export const actions = {
     }
   },
   // 加载特惠商品
-  loadDiscounts: ()=>{
+  loadDiscount: ()=>{
     return (dispatch, getState)=>{
-      const {ids}=getState().home.discounts
-      if(ids.length>0){
-        return null
-      }
       const endpoint =url.getProductList(params.PATH_DISCOUNTS,0,params.PAGE_SIZE_DISCOUNTS)
       return dispatch(fetchDiscounts(endpoint))
     }
@@ -123,20 +116,3 @@ const reducer = combineReducers({
 })
 
 export default reducer;
-
-// selectors
-export const getLikes=state=>{
-  return state.home.likes.ids.map(id=>{
-    return state.entities.products[id]
-  })
-}
-
-export const getDiscounts=state=>{
-  return state.home.discounts.ids.map(id=>{
-    return state.entities.products[id]
-  })
-}
-
-export const getPageCountOfLikes=state=>{
-  return state.home.likes.pageCount
-}

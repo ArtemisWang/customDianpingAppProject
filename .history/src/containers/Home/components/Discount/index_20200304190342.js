@@ -7,7 +7,7 @@ class Discount extends Component {
     const {data} = this.props;
     return (
       <div className="discount">
-        <a className="discount__header" href="/">
+        <a className="discount__header">
           <span className="discount__title">超值特惠</span>
           <span className="discount__more">更多优惠</span>
           <span className="discount__arrow" />

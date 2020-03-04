@@ -47,7 +47,7 @@ const mapStateToProps=(state,props)=>{
 
 const mapDispatchToProps=dispatch=>{
     return {
-        homeActions:bindActionCreators(homeActions,dispatch)
+        homeActions:homeActions
     }
 }
 

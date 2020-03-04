@@ -47,16 +47,12 @@ export const actions = {
       const {pageCount}=getState().home.likes
       const rowIndex=pageCount*params.PAGE_SIZE_LIKES
       const endpoint = url.getProductList(params.PATH_LIKES,rowIndex,params.PAGE_SIZE_LIKES)
-      return dispatch(fetchLikes(endpoint))
+      return fetchLikes(endpoint)
     }
   },
   // 加载特惠商品
   loadDiscounts: ()=>{
     return (dispatch, getState)=>{
-      const {ids}=getState().home.discounts
-      if(ids.length>0){
-        return null
-      }
       const endpoint =url.getProductList(params.PATH_DISCOUNTS,0,params.PAGE_SIZE_DISCOUNTS)
       return dispatch(fetchDiscounts(endpoint))
     }

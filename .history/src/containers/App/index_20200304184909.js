@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowerRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from "react-redux";
 import ErrorToast from "../../components/ErrorToast";
 import { actions as appActions, getError } from "../../redux/modules/app";

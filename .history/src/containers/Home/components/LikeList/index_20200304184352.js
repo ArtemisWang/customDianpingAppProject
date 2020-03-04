@@ -28,7 +28,7 @@ class LikeList extends Component {
           pageCount < 3 ? (
             <Loading/>
           ): (
-            <a className="likeList__viewAll" href='/'>
+            <a className="likeList__viewAll">
               查看更多
             </a>
           )
@@ -38,11 +38,7 @@ class LikeList extends Component {
   }
 
   componentDidMount() {
-    if(this.props.pageCount<3){
-      document.addEventListener("scroll", this.handleScroll);
-    }else{
-      this.removeListener=true
-    }
+    document.addEventListener("scroll", this.handleScroll);
     if(this.props.pageCount===0){
       this.props.fetchData()
     }

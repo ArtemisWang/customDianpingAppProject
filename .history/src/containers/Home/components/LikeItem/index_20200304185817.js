@@ -18,7 +18,7 @@ class LikeItem extends Component {
       <Link to={`/detail/${id}`} className="likeItem">
         <div className="likeItem__picContainer">
           <div className="likeItem__picTag">{tag}</div>
-          <img alt="" className="likeItem__pic" src={picture} />
+          <img className="likeItem__pic" src={picture} />
         </div>
         <div className="likeItem__content">
           <div className="likeItem__shop">{shop}</div>

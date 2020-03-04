@@ -30,7 +30,6 @@ function post(url, data) {
 
 function handleResponse(url, response) {
   if(response.status === 200) {
-    console.log(response)
     return response.json();
   } else {
     console.error(`Request failed. Url = ${url}`)
