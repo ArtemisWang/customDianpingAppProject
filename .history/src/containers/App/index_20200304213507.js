@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import ErrorToast from "../../components/ErrorToast";
 import { actions as appActions, getError } from "../../redux/modules/app";
 import Home from '../Home/'
-import ProductDetail from '../ProductDetail/'
+import ProductDetail from '../ProductDetail'
 
 class App extends Component {
   render() {
