@@ -127,7 +127,7 @@ export const getProduct = (state, id) => {
   return getProductDetail(state, id)
 }
 
-//获取关联的店铺信息
+//获取管理的店铺信息
 export const getRelatedShop = (state, productId) => {
   const product = getProductById(state, productId);
   let shopId = product ? product.nearestShop : null;

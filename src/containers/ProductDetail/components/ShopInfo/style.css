@@ -105,13 +105,13 @@
 }
 
 .shopInfo__phoneIcon {
-  width: 25px;
-  height: 25px;
-  margin-left: 0;
-  background: url("https://www.dpfile.com/mod/app-m-tuangou/1.3.79/css/img/mobile.png") no-repeat;
-  background-size: 25px auto;
-  background-position: center 0;
-  display: block;
+    width: 25px;
+    height: 25px;
+    margin-left: 0;
+    background: url("https://www.dpfile.com/mod/app-m-tuangou/1.3.79/css/img/mobile.png") no-repeat;
+    background-size: 25px auto;
+    background-position: center 0;
+    display: block;
 }
 
 .shopInfo__bottom {
