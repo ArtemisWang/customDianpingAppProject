@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import ShopList from './components/ShopList';
 import SearchHeader from './components/SearchHeader';
-import KeywordBox from './components/KeywordBox';
-import Banner from '../../components/Banner';
 
 
 class SearchResult extends Component {
@@ -10,8 +8,6 @@ class SearchResult extends Component {
         return (
             <div>
                 <SearchHeader onBack={this.handleBack} onSearch={this.handleSearch}/>
-                <KeywordBox text="text"/>
-                <Banner dark/>
                 <ShopList/>
             </div>
         );
@@ -21,7 +17,7 @@ class SearchResult extends Component {
         this.props.history.push('/')
     }
 
-    handleSearch=()=>{
+    onSearch=()=>{
         this.props.history.push('/search')
     }
 }
