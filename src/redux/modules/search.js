@@ -1,7 +1,7 @@
 import url from "../../utils/url";
 import { FETCH_DATA } from "../middleware/api";
 import { schema as keywordSchema, getKeywordById } from "./entities/keywords";
-import { schema as shopSchema } from "./entities/keywords";
+import { schema as shopSchema, getShopById } from "./entities/shops";
 import { combineReducers } from "redux"
 
 export const types = {
@@ -301,4 +301,25 @@ export const getHistoryKeywords = state => {
   return state.search.historyKeywords.map(id => {
     return getKeywordById(state, id)
   })
+}
+
+// 获取店铺列表
+export const getSearchedShops = state => {
+  const keywordId = state.search.historyKeywords[0];
+  if(!keywordId) {
+    return [];
+  }
+  const shops = state.search.searchedShopsByKeyword[keywordId];
+  return shops.ids.map(id => {
+    return getShopById(state, id);
+  })
+}
+
+// 获取当前关键词
+export const getCurrentKeyword = state => {
+  const keywordId = state.search.historyKeywords[0];
+  if(!keywordId) {
+    return ""
+  }
+  return getKeywordById(state, keywordId).keyword;
 }
