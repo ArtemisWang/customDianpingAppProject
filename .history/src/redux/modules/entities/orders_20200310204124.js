@@ -12,9 +12,7 @@ export const REFUND_TYPE = 4; //退款
 
 export const types = {
   //删除订单
-  DELETE_ORDER: "ORDERS/DELETE_ORDER",
-  //新增评价
-  ADD_COMMENT: "ORDERS/ADD_COMMENT"
+  DELETE_ORDER: "ORDERS/DELETE_ORDER"
 }
 
 export const actions = {
@@ -22,12 +20,6 @@ export const actions = {
   deleteOrder: (orderId) => ({
     type: types.DELETE_ORDER,
     orderId
-  }),
-  //新增评价
-  addComment: (orderId, commentId) => ({
-    type: types.ADD_COMMENT,
-    orderId,
-    commentId
   })
 }
 
@@ -35,15 +27,7 @@ export const actions = {
 const normalReducer = createReducer(schema.name)
 
 const reducer = (state = {}, action) => {
-  if(action.type === types.ADD_COMMENT) {
-    return {
-      ...state,
-      [action.orderId]: {
-        ...state[action.orderId],
-        commentId: action.commentId
-      }
-    }
-  } else if(action.type === types.DELETE_ORDER) {
+  if(action.type === types.DELETE_ORDER) {
     const {[action.orderId]: deleteOrder, ...restOrders} = state;
     return restOrders;
   } else {

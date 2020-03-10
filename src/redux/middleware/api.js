@@ -30,8 +30,8 @@ export default store => next => action => {
   }
 
   const [requestType, successType, failureType] = types
-  // next指的就是原来的、没有中间件时的dispatch方法
-  next(actionWith({type: requestType})) 
+
+  next(actionWith({type: requestType}))
   return fetchData(endpoint, schema).then(
     response => next(actionWith({
       type: successType,
