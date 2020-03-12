@@ -279,3 +279,20 @@ export const getDeletingOrderId = state => {
     ? state.user.currentOrder.id
     : null;
 };
+
+// 获取正在评价的订单id
+export const getCommentingOrderId = state => {
+  return state.user.currentOrder && state.user.currentOrder.isCommenting
+    ? state.user.currentOrder.id
+    : null;
+};
+
+// 获取评论信息
+export const getCurrentOrderComment = state => {
+  return state.user.currentOrder ? state.user.currentOrder.comment : "";
+};
+
+// 获取订单评级/打分
+export const getCurrentOrderStars = state => {
+  return state.user.currentOrder ? state.user.currentOrder.stars : 0;
+};
