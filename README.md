@@ -315,7 +315,8 @@ UserMain组件的title部分的状态先设置一个currentTab，保存当前被
 5. 重新加载配置文件：nginx -s reload
 6. 此时访问localhost:8000可以看到我们的web app可以正常访问了，但是当我们点击一个商品后，跳转至商品详情页后点击刷新页面，整个页面显示空白，这是因为我们的web app是单页面应用，客户端路由的形式，刷新操作会将页面请求发送至服务器端，而我们的nginx服务器端找不到对应子路径的页面信息(web/文件夹内没有对应的子路径文件夹存在)，解决方法：我们需要配置当服务器找不到对应的页面信息时重定向至index.html，然后在客户端执行页面的跳转功能，定位到我们需要显示的页面。
 7. location / 中添加try_files $uri /index.html;实现找不到文件重定向，再重新加载配置文件：nginx -s reload；此时解决了上述问题，在任意路径下刷新都可以正常显示页面了
-8. 如何配置到子路径：在开发环境中修改package.json，添加"homepage":"http://localhost:8000/dianping"，再重新编译yarn build；此时查看build/index.html，可以看到我们的静态资源路径都是在"/dianping/static/..."内的，但这样并不能够正常工作，还需要在react router配置中修改每一个path对应的路径，例如\<Route path="/login" component={Login} />修改为\<Route path="/dianping/login" component={Login} />；但这样每一个都修改很麻烦，可以修改父节点\<Router basename="/dianping">；然后重新编译yarn build，将build文件夹内容拷贝到web文件夹内的dianping文件夹，然后修改nginx配置文件loaction / 为location /dianping，下面的重定向uri变为/dianping/index.html；再重新加载配置；浏览器打开http://localhost:8000/dianping，此时又发现我们的mock数据获取不到的问题，发现mock数据请求路径并没有被包裹在dianping/内，解决办法：修改nginx配置文件，添加路径匹配location /mock {
+8. 如何配置到子路径：在开发环境中修改package.json，添加"homepage":"http://localhost:8000/dianping"，再重新编译yarn build；此时查看build/index.html，可以看到我们的静态资源路径都是在"/dianping/static/..."内的，但这样并不能够正常工作，还需要在react router配置中修改每一个path对应的路径，例如\<Route path="/login" component={Login} />修改为\<Route path="/dianping/login" component={Login} />；但这样每一个都修改很麻烦，可以修改父节点\<Router basename="/dianping">；然后重新编译yarn build，将build文件夹内容拷贝到web文件夹内的dianping文件夹，然后修改nginx配置文件loaction / 为location /dianping，下面的重定向uri变为/dianping/index.html；再重新加载配置；浏览器打开http://localhost:8000/dianping，
+此时又发现我们的mock数据获取不到的问题，发现mock数据请求路径并没有被包裹在dianping/内，解决办法：修改nginx配置文件，添加路径匹配location /mock {
     		root   /usr/local/var/web/dianping;
     	}，再重新加载配置，运行发现解决了问题。
 
