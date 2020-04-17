@@ -68,7 +68,7 @@ UI：React
 
 ## 3-Category(containers/Home/components/Category/)组件开发
 1. 走马灯效果，使用react-slick-->https://react-slick.neostack.com/
-2. BEM命名规范：block、block__element、block--modifier
+2. BEM命名规范：block模块名、block__element节点名、block--modifier节点状态名
 3. 想看到Category组件的渲染，需要在其上一级Home组件中引入，然后再整个业务的根组件App中引入Home组件
 4. 发现问题：走马灯下方按钮，按下之后，当页面再次滑走后该位置显示黑色--解决办法：查找样式变化，看到button:focus:before和button:hover:before对应的opacity在走马灯经过后变为了1，重新设置其中一个对应的opacity值为.25即可，同时button:before中添加opacity项设置opacity为1，放置在默认属性之后执行
 
